@@ -8,7 +8,7 @@ Ejemplo de bot telegram utilizando un rss o eventos de la base de datos.
 
 El ejemplo es una aplicación de **express** que escucha un endpoint para que el bot reciba ordenes y así devuelva acciones como respuestas u otros (viable para poder realizar modificaciones directamente desde el propio bot).
 
-El ejemplo consta de dos partes, la primera corresponde a la configuración y posibles usos del bot y la segunda a la manera de recoger posibles noticias nuevas a publicar de manera automatizada.
+El ejemplo consta de dos partes, la primera corresponde a la configuración y posibles usos del bot y la segunda a la manera de recoger posibles noticias nuevas y publicar de manera automatizada.
 
 ## Comandos
 
@@ -68,7 +68,9 @@ Como muchos medios, RTVE provee un sistema de Rss para compartir sus noticias po
 
 En caso de no tener guardado un json con el parseo anterior de ese Rss, se guarda dicho json para que la proxima vez, se compare el nuevo parseo, y si hay noticias nuevas, el bot publique las noticias nuevas que no coincidan con la versión guardada. Posteriormente, la versión rss guardada se actauliza con la nueva. (ver código en app-rss debido a su extensión)
 
-Dicha ejecución debería programarse en una tarea del servidor para que cada X tiempo compare diferencias y así de manera automatizada publicase nuevas noticias por ahora para el ejemplo generamos un intervalo con un tiempo de un minuto.
+Dicha ejecución debería programarse en una tarea del servidor para que cada X tiempo compare diferencias y así de manera automatizada publique nuevas noticias. 
+
+Por ahora para el ejemplo generamos un intervalo con un tiempo de un minuto.
 
 Cada vez que se realicen cambios debemos recibir en la consola el siguiente mensaje: 
 
@@ -123,7 +125,7 @@ En este caso comprobamos si la operación que se ha realizado ha sido o una inse
       }
     });
 
-Cuando insertemos un documento la consola nos devolverá el siguiente resultado:
+Cuando insertemos un documento, la consola nos devolverá el siguiente resultado:
 
 !['Resultado consola node Mongo'](img/nodemongo.JPG "Resultado consola node Mongo")
 
@@ -151,7 +153,7 @@ Posteriormente solo tenemos que generar una conexión mysql en node para conecta
       startAtEnd: true 
     });
 
-y luego añades un disparador que especifique la base de datos qué tiene que escuchar y lo que ocurre cuando se dispara el evento, en este caso, que el bot de telegram publique en un canal especifico lo sucedido en la base de datos, como por ejemplo una insercion de una noticia o una modificación de una noticia:
+y luego se añade un disparador que especifique la base de datos qué tiene que escuchar y lo que ocurre cuando se dispara el evento, en este caso, que el bot de telegram publique en un canal especifico lo sucedido en la base de datos, como por ejemplo una insercion de una noticia o una modificación de una noticia:
 
     instance.addTrigger({
       name: 'monitoring all statments',
