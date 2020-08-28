@@ -179,7 +179,7 @@ Y el resultado en el canal donde el bot escribe es el siguiente:
 
 Si nosotros tenemos la capacidad de configurar unas bases de datos desde 0, sin duda la mejor elección siempre será un funcionamiento por eventos, siempre y cuando se use en una base de datos de Mongo, puesto que para MySQL, las librerías para gestionar los eventos no parecen estar muy respaldadas ni tener suficiente fama como para recomendar su uso para el futuro. Este sistema brinda una eficiencia y un rendimiento alto frente a una tarea cron lanzada periodicamente.
 
-Por Rss tenemos la facilidad de que muchos servicios de noticias ya brindan una manera de poder monitorizar sus noticias publicadas sin la necesidad de ser tan invasivos como en los metodos anteriores, es verdad que programar una tarea que se repita es menos eficiente y costoso puesto que muchas veces se lanzará una ejecución sin posibles cambios, pero nos permite tener un control mayor sobre lo que queremos hacer sin la necesidad de depender de configuraciones de bases de datos ajenas a nosotros.
+Por Rss tenemos la facilidad de que muchos servicios de noticias ya brindan una manera de poder monitorizar sus noticias publicadas sin la necesidad de ser tan invasivos como en los metodos anteriores, es verdad que programar una tarea que se repita es menos eficiente y costoso puesto que muchas veces se lanzará una ejecución sin posibles cambios, pero nos permite tener un control mayor sobre lo que queremos hacer sin la necesidad de realizar configuraciones en la bases de datos.
 
 ## Principales Librerias requeridas
 
